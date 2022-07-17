@@ -1,0 +1,807 @@
+{
+	"info": {
+		"_postman_id": "b1b621d0-db5d-4374-acdd-668ad0f36212",
+		"name": "Geolocation API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add geolocation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Set variable\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    //console.log('This is our jsonData', jsonData.place_id)\r",
+							"    //pm.expect(jsonData.value).to.eql(100);\r",
+							"    pm.environment.set(\"placeID\", jsonData.place_id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"locatio\": {\r\n    \"lat\": 51.24677,\r\n    \"lng\": 0.60682\r\n },\r\n  \"accuracy\": 50,\r\n  \"name\": \"United Kingdom of Great Britain and Northern Ireland\",\r\n  \"phone_number\": \"(+44) 983 893 937\",\r\n  \"address\": \"20860 iomart Cloud Services Limited\",\r\n  \"types\": [\r\n    \"isp\",\r\n    \"Data Senter\"\r\n  ],\r\n  \"website\": \"https://www.ip2location.com/\",\r\n  \"language\": \"English-EN\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{addResource}}",
+					"host": [
+						"{{BaseURL}}{{addResource}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{dbAPIkey}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add geolocation OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n  \"location\": {\r\n    \"lat\": 51.24677,\r\n    \"lng\": 0.60682\r\n },\r\n  \"accuracy\": 50,\r\n  \"name\": \"United Kingdom of Great Britain and Northern Ireland\",\r\n  \"phone_number\": \"(+44) 983 893 3937\",\r\n  \"address\": \"20860 iomart Cloud Services Limited\",\r\n  \"types\": [\r\n    \"isp\",\r\n    \"Data Senter\"\r\n  ],\r\n  \"website\": \"https://www.ip2location.com/\",\r\n  \"language\": \"English-EN\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{addResource}}?key={{dbAPIkey}}",
+							"host": [
+								"{{BaseURL}}{{addResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:20:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"place_id\": \"9911a6df3df1bc06b79962011458b755\",\n    \"scope\": \"APP\",\n    \"reference\": \"009de410b3547baa69c5ba31bbf55fec009de410b3547baa69c5ba31bbf55fec\",\n    \"id\": \"009de410b3547baa69c5ba31bbf55fec\"\n}"
+				},
+				{
+					"name": "Add geolocation err param",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n  \"locatio\": {\r\n    \"lat\": 51.24677,\r\n    \"lng\": 0.60682\r\n },\r\n  \"accuracy\": 50,\r\n  \"name\": \"United Kingdom of Great Britain and Northern Ireland\",\r\n  \"phone_number\": \"(+44) 983 893 937\",\r\n  \"address\": \"20860 iomart Cloud Services Limited\",\r\n  \"types\": [\r\n    \"isp\",\r\n    \"Data Senter\"\r\n  ],\r\n  \"website\": \"https://www.ip2location.com/\",\r\n  \"language\": \"English-EN\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{addResource}}",
+							"host": [
+								"{{BaseURL}}{{addResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:43:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "<br />\n<b>Notice</b>:  Undefined property: stdClass::$location in <b>/var/www/maps/api/place/AddPlace.php</b> on line <b>39</b><br />\n"
+				}
+			]
+		},
+		{
+			"name": "Get geolocation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verification of ststus code\", function () {\r",
+							"    if (pm.environment.get(\"placeID\")) {\r",
+							"        pm.response.to.have.status(200);\r",
+							"        pm.test(\"Check address\", function () {\r",
+							"            var jsonData = pm.response.json();\r",
+							"            pm.expect(jsonData.address).to.eql(\"29, side layout, cohen 09\");\r",
+							"        });\r",
+							"    }else{ \r",
+							"        pm.response.to.have.status(404);\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}{{getResource}}?key={{dbAPIkey}}&place_id={{placeID}}",
+					"host": [
+						"{{BaseURL}}{{getResource}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{dbAPIkey}}"
+						},
+						{
+							"key": "place_id",
+							"value": "{{placeID}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get geolocation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}{{getResource}}?key={{dbAPIkey}}&place_id={{placeID}}",
+							"host": [
+								"{{BaseURL}}{{getResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}"
+								},
+								{
+									"key": "place_id",
+									"value": "{{placeID}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:30:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "314"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"location\": {\n        \"latitude\": \"51.24677\",\n        \"longitude\": \"0.60682\"\n    },\n    \"accuracy\": \"50\",\n    \"name\": \"United Kingdom of Great Britain and Northern Ireland\",\n    \"phone_number\": \"(+44) 983 893 3937\",\n    \"address\": \"20860 iomart Cloud Services Limited\",\n    \"types\": \"isp,Data Senter\",\n    \"website\": \"https://www.ip2location.com/\",\n    \"language\": \"English-EN\"\n}"
+				},
+				{
+					"name": "Get geolocation Err (no key)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}{{getResource}}?place_id={{placeID}}",
+							"host": [
+								"{{BaseURL}}{{getResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}",
+									"disabled": true
+								},
+								{
+									"key": "place_id",
+									"value": "{{placeID}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:44:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update geolocation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success message check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.msg).to.eql('Address successfully updated');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"place_id\":\"{{placeID}}\",\r\n  \"address\":\"Khreshatyk 26, Kyiv, UKRAINE\",\r\n  \"key\":\"{{dbAPIkey}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{updateResource}}",
+					"host": [
+						"{{BaseURL}}{{updateResource}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update geolocation OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"place_id\":\"{{placeID}}\",\r\n  \"address\":\"Khreshatyk 26, Kyiv, UKRAINE\",\r\n  \"key\":\"{{dbAPIkey}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{updateResource}}",
+							"host": [
+								"{{BaseURL}}{{updateResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:35:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Address successfully updated\"\n}"
+				},
+				{
+					"name": "Update geolocation Err",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"place_id\":\"{{placeID}}\",\r\n  \"address\":\"Khreshatyk 27, Kyiv, UKRAINE\",\r\n  \"key\":\"{{dbAPIkey}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{updateResource}}",
+							"host": [
+								"{{BaseURL}}{{updateResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:34:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Update address operation failed, looks like the data doesn't exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Remove geoocation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.environment.set(\"placeID\", null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Remove msg check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql('OK');\r",
+							"});\r",
+							"\r",
+							"postman.setNextRequest('Get Place');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"place_id\":\"{{placeID}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{removeResource}}?key={{dbAPIkey}}",
+					"host": [
+						"{{BaseURL}}{{removeResource}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{dbAPIkey}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remove geoocation OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"place_id\":\"{{placeID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{removeResource}}?key={{dbAPIkey}}",
+							"host": [
+								"{{BaseURL}}{{removeResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:37:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\"\n}"
+				},
+				{
+					"name": "Remove geoocation Err",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"place_id\":\"{{placeID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{removeResource}}?key={{dbAPIkey}}",
+							"host": [
+								"{{BaseURL}}{{removeResource}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{dbAPIkey}}"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 31 Mar 2022 10:37:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.18 (Ubuntu)"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "3600"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Delete operation failed, looks like the data doesn't exists\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "basegeoapi",
+			"value": "https://rahulshettyacademy.com"
+		}
+	]
+}

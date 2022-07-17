@@ -1,0 +1,15 @@
+{
+  "location": {
+    "lat": 51.24677,
+    "lng": 0.60682
+  },
+  "accuracy": 50,
+  "name": "United Kingdom of Great Britain and Northern Ireland",
+  "phone_number": "(+44) 983 893 3937",
+  "address": "20860 iomart Cloud Services Limited",
+  "types": [
+    "isp",
+    "Data Senter"
+  ],
+  "website": "https://www.ip2location.com/",
+  "language": "English-EN"
